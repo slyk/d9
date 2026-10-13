@@ -44,7 +44,7 @@ export class TFAService {
 
 		return {
 			secret,
-			url: authenticator.keyuri(user.email, project?.project_name || 'd9', secret),
+			url: authenticator.keyuri(user.email, project?.project_name || 'Open D', secret),
 		};
 	}
 

@@ -107,8 +107,9 @@ export default defineComponent({
 		width: 35px;
 		height: 35px;
 		margin: 0 auto;
-		background-image: url('../../../assets/logo-loader.svg');
-		background-size: 35px 35px;
+		background-image: url('../../../assets/open-d-symbol-white.svg');
+		background-size: contain;
+		background-position: center;
 		background-repeat: no-repeat;
 	}
 

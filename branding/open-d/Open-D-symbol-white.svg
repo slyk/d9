@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="281" height="255" viewBox="-16 -16 281 255" role="img" aria-labelledby="title">
+<title id="title">Open D — Compact symbol</title>
+<g id="symbol" fill="#FFFFFF">
+  <path d="M 15,0 H 132 C 162,0 187,10 210,29 L 168,71 C 156,60 145,55 130,55 H 64 Q 60,55 60,59 V 223 H 15 Q 0,223 0,208 V 15 Q 0,0 15,0 Z"/>
+  <path d="M 226,48 C 241,67 249,89 249,112 C 249,174 197,223 132,223 H 77 V 181 Q 77,165 93,165 H 130 C 163,165 187,141 187,112 C 187,104 186,98 182,92 Z"/>
+</g>
+</svg>
