@@ -12,10 +12,8 @@ describe('getProjectPrimaryVars', () => {
 		expect(Object.keys(getProjectPrimaryVars('#ff0000')!).sort()).toEqual([...PRIMARY_VARIABLES].sort());
 	});
 
-	it('normalizes the project color and lifts it per theme', () => {
-		const vars = getProjectPrimaryVars('#f00')!;
-		expect(vars['--primary-base']).toBe('#FF0000');
-		expect(vars['--primary']).toBe('color-mix(in srgb, var(--primary-base), #fff var(--primary-lift))');
+	it('uses the normalized project color as is, in every theme', () => {
+		expect(getProjectPrimaryVars('#f00')!['--primary']).toBe('#FF0000');
 	});
 
 	it('mixes positive steps with the pos color and negative steps with the neg color, like the Sass palette', () => {

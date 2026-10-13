@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-13
 **Status:** Implemented (slyk/d9 `main` f72d80075, deployed to tps-side 2026-10-13)
-**Deciders:** Kyrylo Kuzmytskyi (approved 2026-10-13: Option A, with the recommended answers: 20% dark lift, no contrast guard; built directly on tps-side because the instance was still empty)
+**Deciders:** Kyrylo Kuzmytskyi (approved 2026-10-13: Option A, no contrast guard; built directly on tps-side because the instance was still empty. Revised 2026-10-13 after testing: the proposed 20% dark mode lift was dropped, it desaturated the color; the project color is used as is in every theme)
 
 ## Context
 
@@ -94,7 +94,7 @@ Same idea, but values are computed in TypeScript for the resolved theme (`getThe
 
 **Option A.** Open choices for the approver (recommended answer first):
 
-1. **Dark theme lift:** lighten the project color 20% toward white in dark mode (reproduces the stock `#6644ff` -> `#8866ff`
+1. **Dark theme lift (rejected after testing, see Status):** lighten the project color 20% toward white in dark mode (reproduces the stock `#6644ff` -> `#8866ff`
    relationship, keeps contrast on dark backgrounds) **vs.** use the exact color in both themes.
 2. **Contrast guard:** none, the admin is responsible for choosing a color readable with white button text **vs.** auto-pick
    dark/light button text. Recommended: none (out of scope; the Settings field is already free-form).
