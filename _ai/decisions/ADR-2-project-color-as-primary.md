@@ -1,8 +1,8 @@
 # ADR-2: Use the project color as the admin UI primary color
 
 **Date:** 2026-10-13
-**Status:** Proposed (waiting for approval of the options below)
-**Deciders:** Kyrylo Kuzmytskyi
+**Status:** Implemented (slyk/d9 `main` f72d80075, deployed to tps-side 2026-10-13)
+**Deciders:** Kyrylo Kuzmytskyi (approved 2026-10-13: Option A, with the recommended answers: 20% dark lift, no contrast guard; built directly on tps-side because the instance was still empty)
 
 ## Context
 
