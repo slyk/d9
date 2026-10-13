@@ -4,6 +4,12 @@
     <source media="(prefers-color-scheme: light)" srcset="docs/public/logo-readme.svg">
     <img alt="d9 Logo" src="docs/public/logo-readme.svg" width="200">
   </picture>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="branding/open-d/Open-D-logo-white.svg">
+    <source media="(prefers-color-scheme: light)" srcset="branding/open-d/Open-D-logo.svg">
+    <img alt="Open D Logo" src="branding/open-d/Open-D-logo.svg" height="100">
+  </picture>
 </p>
 
 <br />
