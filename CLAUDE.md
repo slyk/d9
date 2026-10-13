@@ -29,3 +29,10 @@ Every debugging session is a potential contribution. Run `/d9-skills:skillops` t
 - Plugins must be rebuilt (`pnpm build` in plugins/) before any deployment
 - AWS region is eu-west-3 (Paris) for all services
 - Contact: support@webcapsule.io
+
+## Fork-local notes (slyk/d9, not for upstream)
+
+This checkout is the production deployment of the fork. Before changing code or deploying, read `DEPLOY.md` (server-local,
+untracked: layout, update commands, and the **Development workflow** using the `/var/www/tps-side-dev` worktree) and
+`_ai/` (ADRs, plans, architecture notes). Feature branches are based on `upstream/main` and must not contain this section,
+`_ai/` or `DEPLOY.md`.
