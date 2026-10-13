@@ -47,6 +47,7 @@ snapshots/
 /schema.yaml
 /schema.json
 /api/uploads
+/uploads
 /api/extensions
 /api/snapshot.yaml
 /tests/blackbox/uploads
