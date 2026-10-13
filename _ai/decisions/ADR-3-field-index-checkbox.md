@@ -1,7 +1,7 @@
 # ADR-3: "Indexed" checkbox for fields (advanced field creation)
 
 **Date:** 2026-10-13
-**Status:** Implemented on tps-side (not yet pushed/sent upstream, see Rollout)
+**Status:** Implemented (slyk/d9 `main` a6cea2dec, deployed to tps-side 2026-10-13, create and drop verified in the UI on MariaDB). Upstream Discussion not posted yet.
 **Deciders:** Kyrylo Kuzmytskyi (requested 2026-10-13: a checkbox in the advanced field creation mode that makes the DB column indexed; the
 state must live in the DB column schema, not in Directus metadata). Built directly on tps-side (only one test table there), then
 sent upstream via a GitHub Discussion. Approved 2026-10-13 with all four recommendations; one refinement from the approver: a
@@ -134,3 +134,5 @@ Matches the requirement literally and follows the exact path of `is_unique`, so 
 - API: `is_indexed: true` is ignored for primary key / unique columns; turning *Unique* on drops an existing plain index.
 - Snapshot diff ignores `is_indexed` when the target snapshot lacks it (old snapshots).
 - `Column.is_indexed` is a required property; test fixtures that build `Column` objects needed `is_indexed: false`.
+- Checkbox label shortened to "Add database index" (`value_indexed`), the first wording did not fit the half-width column.
+- Verified by the approver in the UI on tps-side: checking the box on `test.title` created `test_title_index`, unchecking it dropped it.
