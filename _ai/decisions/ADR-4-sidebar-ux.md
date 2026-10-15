@@ -48,7 +48,7 @@ Directus 10+ code is not used (fork rule); everything here is written for d9.
       in theme colours (light and dark); it turns `--primary` on hover/drag together with the existing handle line.
 - [ ] R7: Header actions collapse only when they do not fit: the buttons may use up to half of the header width; the rest is
       reserved for the title. No flicker at the boundary, no layout flash on load.
-- [ ] R8: No API, migration or setting changes; nav behaviour stays the same apart from the grip.
+- [ ] R8: No API, migration or setting changes; nav behaviour stays the same apart from the grip and its minimum (220px → 150px, requested 2026-10-15; default stays 220px).
 
 ## Decision
 
