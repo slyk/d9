@@ -25,6 +25,7 @@ When d9 ships one of these features, it leaves this list and moves to the [histo
 | 🎨  | [Project colour as the admin primary colour](#project-colour)                     | 🆕 `new`         | `v12.0.18-od.1` | [ADR-2](_ai/decisions/ADR-2-project-color-as-primary.md)                                                              |
 | 🗂️  | ["Indexed" checkbox for fields](#indexed-checkbox)                                | 🆕 `new`         | `v12.0.18-od.1` | [ADR-3](_ai/decisions/ADR-3-field-index-checkbox.md)                                                                  |
 | 💎  | [Open D branding and animated login art](#branding)                               | 🏠 `not-planned` | `v12.0.18-od.1` | —                                                                                                                     |
+| ↔️  | [Resizable sidebar and roomier header](#sidebar-ux)                               | 🆕 `new`         | `v12.0.19-od.2` | [ADR-4](_ai/decisions/ADR-4-sidebar-ux.md)                                                                            |
 
 <a id="refresh-token"></a>
 
@@ -67,13 +68,26 @@ part of schema snapshot, diff and apply.
 - The login and other public pages get an animated "crystal parallax" background, tinted with the project colour. A
   custom public background set in Settings still replaces it.
 
+<a id="sidebar-ux"></a>
+
+### ↔️ Resizable sidebar and roomier header
+
+- The sidebar on the right can be resized from its left edge, from 150px up to the room left for the page. Double-click
+  the edge to reset it to 280px. Dragging it close to the window edge closes it. The navigation on the left can now also
+  be made narrower, down to 150px.
+- Both resizable edges show a small grip, so they can be found without hovering. It lights up in the primary colour.
+- When the sidebar is open, a new page shows its first section (usually "Information") open, instead of all collapsed.
+- A click on the empty area below the sidebar sections closes the sidebar. A thin line marks where that area starts.
+- The header action buttons collapse behind an expand button only when they would take more than half of the header, not
+  on every window narrower than 960px.
+
 ## Coming in the next release
 
 These are merged into Open D `main` or under review. They move to the table above once released.
 
-|     | Feature                                                                                                                                              | d9 status | Links                                      |
-| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------ |
-| ↔️  | Resizable sidebar with visible grips, roomier header actions, click the empty sidebar area to close it, first sidebar section kept open across pages | 🆕 `new`  | [ADR-4](_ai/decisions/ADR-4-sidebar-ux.md) |
+|              | Feature | d9 status | Links |
+| ------------ | ------- | --------- | ----- |
+| _(none yet)_ |         |           |       |
 
 ## Merged into d9
 
