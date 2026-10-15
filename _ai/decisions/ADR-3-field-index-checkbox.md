@@ -1,7 +1,7 @@
 # ADR-3: "Indexed" checkbox for fields (advanced field creation)
 
 **Date:** 2026-10-13
-**Status:** Implemented (slyk/d9 `main` a6cea2dec, deployed to tps-side 2026-10-13, create and drop verified in the UI on MariaDB). Upstream Discussion not posted yet.
+**Status:** Implemented (slyk/d9 `main` a6cea2dec, deployed to tps-side 2026-10-13, create and drop verified in the UI on MariaDB). Upstream: Discussion LaWebcapsule/d9#402 (maintainer: "a great first step", a full index editor with composite indexes may follow), PR LaWebcapsule/d9#435 opened 2026-10-15.
 **Deciders:** Kyrylo Kuzmytskyi (requested 2026-10-13: a checkbox in the advanced field creation mode that makes the DB column indexed; the
 state must live in the DB column schema, not in Directus metadata). Built directly on tps-side (only one test table there), then
 sent upstream via a GitHub Discussion. Approved 2026-10-13 with all four recommendations; one refinement from the approver: a
