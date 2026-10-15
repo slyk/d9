@@ -34,7 +34,7 @@ Directus 10+ code is not used (fork rule); everything here is written for d9.
 
 ## Requirements
 
-- [ ] R1: The sidebar is resizable from its left edge while open: min 200px (the panel stops shrinking there), max leaves 590px
+- [ ] R1: The sidebar is resizable from its left edge while open: min 150px (the panel stops shrinking there; 200px at first, lowered on request 2026-10-15), max leaves 590px
       for the content, double-click resets to 280px, width persisted per browser like the nav width.
 - [ ] R2: While dragging the sidebar past its minimum, if the pointer comes within 48px of the window edge the sidebar closes
       (to the rail). Its width before the drag is kept for the next open.
@@ -130,7 +130,7 @@ tps-side-dev, merged to the fork through one fork PR, deployed with `opend-build
   tab: ~220ms per frame). Widths are rounded to whole pixels.
 - The click after a drag is swallowed in the capture phase (`once`, removed again after a 0ms timeout); otherwise releasing the
   pointer over the closed rail after a collapse re-opened the sidebar.
-- Verified in Chrome on dev (1440px, dark theme): resize 200–570px (1440 - 590 - 60 - 220), collapse near the edge keeps the
+- Verified in Chrome on dev (1440px, dark theme): resize 200–570px (min since lowered to 150px) (1440 - 590 - 60 - 220), collapse near the edge keeps the
   previous width, double-click reset, first section open without animation on Users / Files, click in a section keeps the
   sidebar open and click on the empty area closes it, header actions all visible at 920px and collapse/expand when buttons are
   added at 500px. Light theme and the grip look still to be checked by the requester.
