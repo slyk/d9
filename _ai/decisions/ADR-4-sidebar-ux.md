@@ -1,7 +1,7 @@
 # ADR-4: Sidebar and header ergonomics (resizable sidebar, grips, header actions)
 
 **Date:** 2026-10-15
-**Status:** Approved, in progress (branch `feat/sidebar-ux` from `upstream/main`)
+**Status:** Implemented on branch `feat/sidebar-ux` (4 commits on `upstream/main`), on tps-side-dev for review; not merged to the fork yet
 **Deciders:** Kyrylo Kuzmytskyi (requested 2026-10-15; approved the same day with these refinements: sidebar minimum 200px and
 collapse when dragged near the window edge, auto-collapse as a flag of the shared resize logic, no expand animation when a page
 opens with the sidebar already open, a thin separator above the clickable empty area)
@@ -90,8 +90,9 @@ The existing `.spacer` under the sections in `private-view.vue` gets `@click.sto
 - Measured in `onMounted` (before the first paint) and on a `ResizeObserver` of the header and a `MutationObserver` of the
   button list (batch actions add buttons): a `measuring` class shows every button for one synchronous layout read, then is
   removed (no visible flash).
-- Collapse when the natural width of the buttons > 50% of the header width; expand again only below 50% minus a 16px margin
-  (hysteresis). Not re-measured on button size changes (the search input grows when focused and must not trigger a collapse).
+- Collapse when the natural width of the buttons plus the other elements right of the spacer (layout item count) > 50% of
+  the header content width. Not re-measured on button size changes (the search input grows when focused and must not trigger
+  a collapse).
 - The info button that opens the sidebar keeps its rule: only below 960px, where there is no sidebar rail.
 
 ## Delivery
@@ -116,3 +117,22 @@ tps-side-dev, merged to the fork through one fork PR, deployed with `opend-build
 ## Open Issues
 
 - Grip dot pattern (2 or 3 dots) to be tuned on dev.
+
+## Implementation notes (2026-10-15)
+
+- Commits on `feat/sidebar-ux`: `fix(app): keep the first sidebar section open across pages`, `feat(app): resizable sidebar
+  with visible grip handles`, `feat(app): collapse header actions only when they do not fit`, `feat(app): close the sidebar by
+  clicking its empty area`; one changeset each.
+- No hysteresis for the header actions: the measured width does not depend on the collapsed state and the header width does
+  not depend on the actions, so there is no feedback loop to damp.
+- Drag: one pending `requestAnimationFrame` at a time, and the pending move is applied on `pointerup`. The first version
+  cancelled the frame on every move and on release, which lost the whole drag when frames are slow (seen in a throttled Chrome
+  tab: ~220ms per frame). Widths are rounded to whole pixels.
+- The click after a drag is swallowed in the capture phase (`once`, removed again after a 0ms timeout); otherwise releasing the
+  pointer over the closed rail after a collapse re-opened the sidebar.
+- Verified in Chrome on dev (1440px, dark theme): resize 200–570px (1440 - 590 - 60 - 220), collapse near the edge keeps the
+  previous width, double-click reset, first section open without animation on Users / Files, click in a section keeps the
+  sidebar open and click on the empty area closes it, header actions all visible at 920px and collapse/expand when buttons are
+  added at 500px. Light theme and the grip look still to be checked by the requester.
+- Dev note: `upstream/main` after v12.0.19 adds `request-filtering-agent` (GHSA-xhgj-x4mj-6c93 fix), so `pnpm install` was
+  needed on dev; the app build gets OOM-killed while the dev API runs.
