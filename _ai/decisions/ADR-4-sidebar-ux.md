@@ -1,7 +1,7 @@
 # ADR-4: Sidebar and header ergonomics (resizable sidebar, grips, header actions)
 
 **Date:** 2026-10-15
-**Status:** Implemented, slyk/d9#4 (merged 2026-10-15), released in `v12.0.20-od.2` and deployed to tps-side and tps-supply. Upstream PRs not opened yet.
+**Status:** Implemented, slyk/d9#4 (merged 2026-10-15), released in `v12.0.20-od.2` and deployed to tps-side and tps-supply. Upstream: discussion LaWebcapsule/d9#431 (2026-10-15); PRs LaWebcapsule/d9#433 (R4, first section, branch `upstream/sidebar-first-section`) and LaWebcapsule/d9#434 (R6 grip on the nav edge only, since d9 has no resizable sidebar yet, branch `upstream/resize-grip`). R1–R3, R5, R7 wait for the discussion.
 **Deciders:** Kyrylo Kuzmytskyi (requested 2026-10-15; approved the same day with these refinements: sidebar minimum 200px and
 collapse when dragged near the window edge, auto-collapse as a flag of the shared resize logic, no expand animation when a page
 opens with the sidebar already open, a thin separator above the clickable empty area)
@@ -103,7 +103,7 @@ tps-side-dev, merged to the fork through one fork PR, deployed with `opend-build
 
 | Upstream PR | Items |
 |---|---|
-| A. `fix(app)`: keep the first sidebar section open across pages | R4 |
+| A. `fix(app)`: keep the first sidebar section open across pages | R4 (opened as d9#433) |
 | B. `feat(app)`: resizable sidebar with visible grip handles | R1–R3, R6 |
 | C. `feat(app)`: header actions collapse only when they do not fit | R7 |
 | D. `feat(app)`: click empty sidebar space to close it | R5 |
