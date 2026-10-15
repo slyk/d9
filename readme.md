@@ -12,6 +12,8 @@
   </picture>
 </p>
 
+<p align="center"><b>Open D</b> is d9 plus a few features of its own: see <a href="OPEND-FEATURES.md">OPEND-FEATURES.md</a>.</p>
+
 <br />
 
 # d9 — Open Data Platform

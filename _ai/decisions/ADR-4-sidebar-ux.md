@@ -1,7 +1,7 @@
 # ADR-4: Sidebar and header ergonomics (resizable sidebar, grips, header actions)
 
 **Date:** 2026-10-15
-**Status:** Implemented on branch `feat/sidebar-ux` (4 commits on `upstream/main`), on tps-side-dev for review; not merged to the fork yet
+**Status:** Implemented on branch `feat/sidebar-ux` (4 commits; moved from `upstream/main` onto `origin/main` on 2026-10-15, when fork features stopped being developed on upstream code), on tps-side-dev for review; not merged to the fork yet
 **Deciders:** Kyrylo Kuzmytskyi (requested 2026-10-15; approved the same day with these refinements: sidebar minimum 200px and
 collapse when dragged near the window edge, auto-collapse as a flag of the shared resize logic, no expand animation when a page
 opens with the sidebar already open, a thin separator above the clickable empty area)
@@ -97,9 +97,9 @@ The existing `.spacer` under the sections in `private-view.vue` gets `@click.sto
 
 ## Delivery
 
-One branch `feat/sidebar-ux` from `upstream/main`, one signed-off commit per item plus changesets; tested together on
+One branch `feat/sidebar-ux` from `origin/main` (originally `upstream/main`), one signed-off commit per item plus changesets; tested together on
 tps-side-dev, merged to the fork through one fork PR, deployed with `opend-build` / `opend-use`. Upstream gets four PRs
-(cherry-picked onto separate branches):
+(cherry-picked onto separate branches cut from `upstream/main`):
 
 | Upstream PR | Items |
 |---|---|

@@ -34,5 +34,8 @@ Every debugging session is a potential contribution. Run `/d9-skills:skillops` t
 
 This checkout is the production deployment of the fork. Before changing code or deploying, read `DEPLOY.md` (server-local,
 untracked: layout, update commands, and the **Development workflow** using the `/var/www/tps-side-dev` worktree) and
-`_ai/` (ADRs, plans, architecture notes). Feature branches are based on `upstream/main` and must not contain this section,
-`_ai/` or `DEPLOY.md`.
+`_ai/` (ADRs, plans, architecture notes). Feature branches are based on the fork (`origin/main`), never on upstream code;
+upstream releases are merged into the fork as a separate task. Upstream PRs use their own branch cut from `upstream/main`
+with the feature commits cherry-picked, without this section, `_ai/`, `DEPLOY.md` or `OPEND-FEATURES.md`.
+`OPEND-FEATURES.md` lists every Open D feature not in d9 and its d9 status; keep it current, and start every fork release
+note with its short list and a link to it.
