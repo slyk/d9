@@ -1,7 +1,7 @@
 # ADR-4: Sidebar and header ergonomics (resizable sidebar, grips, header actions)
 
 **Date:** 2026-10-15
-**Status:** Implemented on branch `feat/sidebar-ux` (4 commits; moved from `upstream/main` onto `origin/main` on 2026-10-15, when fork features stopped being developed on upstream code), on tps-side-dev for review; not merged to the fork yet
+**Status:** Implemented, slyk/d9#4 (merged 2026-10-15), released in `v12.0.20-od.2` and deployed to tps-side and tps-supply. Upstream PRs not opened yet.
 **Deciders:** Kyrylo Kuzmytskyi (requested 2026-10-15; approved the same day with these refinements: sidebar minimum 200px and
 collapse when dragged near the window edge, auto-collapse as a flag of the shared resize logic, no expand animation when a page
 opens with the sidebar already open, a thin separator above the clickable empty area)

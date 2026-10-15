@@ -6,6 +6,10 @@ only to Open D.
 
 When d9 ships one of these features, it leaves this list and moves to the [history](#merged-into-d9) at the end.
 
+Open D releases are tagged `v<d9 version>-od.<N>`. `N` is the version of the Open D features themselves and counts
+across all d9 versions. The same `od.N` on two d9 versions means the same Open D features; a higher `N` means they
+changed, so read that release's notes.
+
 ## Status in d9
 
 | Status           | Meaning                                              |
@@ -25,7 +29,7 @@ When d9 ships one of these features, it leaves this list and moves to the [histo
 | 🎨  | [Project colour as the admin primary colour](#project-colour)                     | 🆕 `new`         | `v12.0.18-od.1` | [ADR-2](_ai/decisions/ADR-2-project-color-as-primary.md)                                                              |
 | 🗂️  | ["Indexed" checkbox for fields](#indexed-checkbox)                                | 🆕 `new`         | `v12.0.18-od.1` | [ADR-3](_ai/decisions/ADR-3-field-index-checkbox.md)                                                                  |
 | 💎  | [Open D branding and animated login art](#branding)                               | 🏠 `not-planned` | `v12.0.18-od.1` | —                                                                                                                     |
-| ↔️  | [Resizable sidebar and roomier header](#sidebar-ux)                               | 🆕 `new`         | `v12.0.20-od.1` | [ADR-4](_ai/decisions/ADR-4-sidebar-ux.md)                                                                            |
+| ↔️  | [Resizable sidebar and roomier header](#sidebar-ux)                               | 🆕 `new`         | `v12.0.20-od.2` | [ADR-4](_ai/decisions/ADR-4-sidebar-ux.md)                                                                            |
 
 <a id="refresh-token"></a>
 
