@@ -23,13 +23,13 @@ changed, so read that release's notes.
 
 ## Features
 
-|     | Feature                                                                           | d9 status        | In Open D since | Links                                                                                                                 |
-| --- | --------------------------------------------------------------------------------- | ---------------- | --------------- | --------------------------------------------------------------------------------------------------------------------- |
-| 🔑  | [Login with OpenID/OAuth2 providers that return no refresh token](#refresh-token) | 💬 `discuss`     | `v12.0.18-od.1` | [ADR-1](_ai/decisions/ADR-1-oauth-optional-refresh-token.md), [d9#401](https://github.com/LaWebcapsule/d9/issues/401) |
-| 🎨  | [Project colour as the admin primary colour](#project-colour)                     | 🆕 `new`         | `v12.0.18-od.1` | [ADR-2](_ai/decisions/ADR-2-project-color-as-primary.md)                                                              |
-| 🗂️  | ["Indexed" checkbox for fields](#indexed-checkbox)                                | 🆕 `new`         | `v12.0.18-od.1` | [ADR-3](_ai/decisions/ADR-3-field-index-checkbox.md)                                                                  |
-| 💎  | [Open D branding and animated login art](#branding)                               | 🏠 `not-planned` | `v12.0.18-od.1` | —                                                                                                                     |
-| ↔️  | [Resizable sidebar and roomier header](#sidebar-ux)                               | 🆕 `new`         | `v12.0.20-od.2` | [ADR-4](_ai/decisions/ADR-4-sidebar-ux.md)                                                                            |
+|     | Feature                                                                           | d9 status        | In Open D since | Links                                                                                                                                                                        |
+| --- | --------------------------------------------------------------------------------- | ---------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🔑  | [Login with OpenID/OAuth2 providers that return no refresh token](#refresh-token) | ⏳ `pending`     | `v12.0.18-od.1` | [ADR-1](_ai/decisions/ADR-1-oauth-optional-refresh-token.md), [d9#401](https://github.com/LaWebcapsule/d9/issues/401), [d9#430](https://github.com/LaWebcapsule/d9/pull/430) |
+| 🎨  | [Project colour as the admin primary colour](#project-colour)                     | 🆕 `new`         | `v12.0.18-od.1` | [ADR-2](_ai/decisions/ADR-2-project-color-as-primary.md)                                                                                                                     |
+| 🗂️  | ["Indexed" checkbox for fields](#indexed-checkbox)                                | 🆕 `new`         | `v12.0.18-od.1` | [ADR-3](_ai/decisions/ADR-3-field-index-checkbox.md)                                                                                                                         |
+| 💎  | [Open D branding and animated login art](#branding)                               | 🏠 `not-planned` | `v12.0.18-od.1` | —                                                                                                                                                                            |
+| ↔️  | [Resizable sidebar and roomier header](#sidebar-ux)                               | 🆕 `new`         | `v12.0.20-od.2` | [ADR-4](_ai/decisions/ADR-4-sidebar-ux.md)                                                                                                                                   |
 
 <a id="refresh-token"></a>
 
