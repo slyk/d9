@@ -23,14 +23,13 @@ changed, so read that release's notes.
 
 ## Features
 
-|     | Feature                                                                           | d9 status             | In Open D since | Links                                                                                                                                                                                                                  |
-| --- | --------------------------------------------------------------------------------- | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 🔑  | [Login with OpenID/OAuth2 providers that return no refresh token](#refresh-token) | ⏳ `pending`          | `v12.0.18-od.1` | [ADR-1](_ai/decisions/ADR-1-oauth-optional-refresh-token.md), [d9#401](https://github.com/LaWebcapsule/d9/issues/401), [d9#430](https://github.com/LaWebcapsule/d9/pull/430)                                           |
-| 🎨  | [Project colour as the admin primary colour](#project-colour)                     | ⏳ `pending`          | `v12.0.18-od.1` | [ADR-2](_ai/decisions/ADR-2-project-color-as-primary.md), [d9#431](https://github.com/LaWebcapsule/d9/discussions/431), [d9#432](https://github.com/LaWebcapsule/d9/pull/432)                                          |
-| 🗂️  | ["Indexed" checkbox for fields](#indexed-checkbox)                                | ⏳ `pending`          | `v12.0.18-od.1` | [ADR-3](_ai/decisions/ADR-3-field-index-checkbox.md), [d9#402](https://github.com/LaWebcapsule/d9/discussions/402), [d9#435](https://github.com/LaWebcapsule/d9/pull/435)                                              |
-| 💎  | [Open D branding](#branding)                                                      | 🏠 `not-planned`      | `v12.0.18-od.1` | —                                                                                                                                                                                                                      |
-| ✨  | [Animated login art](#branding)                                                   | 💬 `discuss`          | `v12.0.18-od.1` | [d9#431](https://github.com/LaWebcapsule/d9/discussions/431)                                                                                                                                                           |
-| ↔️  | [Resizable sidebar and roomier header](#sidebar-ux)                               | ⏳ `pending` (partly) | `v12.0.20-od.2` | [ADR-4](_ai/decisions/ADR-4-sidebar-ux.md), [d9#431](https://github.com/LaWebcapsule/d9/discussions/431), [d9#433](https://github.com/LaWebcapsule/d9/pull/433), [d9#434](https://github.com/LaWebcapsule/d9/pull/434) |
+|     | Feature                                                                           | d9 status                                  | In Open D since | Links                                                                                                                                                                                                                                                                                                                                |
+| --- | --------------------------------------------------------------------------------- | ------------------------------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 🔑  | [Login with OpenID/OAuth2 providers that return no refresh token](#refresh-token) | ⏳ `pending` (approved)                    | `v12.0.18-od.1` | [ADR-1](_ai/decisions/ADR-1-oauth-optional-refresh-token.md), [d9#401](https://github.com/LaWebcapsule/d9/issues/401), [d9#430](https://github.com/LaWebcapsule/d9/pull/430)                                                                                                                                                         |
+| 🗂️  | ["Indexed" checkbox for fields](#indexed-checkbox)                                | ⏳ `pending`                               | `v12.0.18-od.1` | [ADR-3](_ai/decisions/ADR-3-field-index-checkbox.md), [d9#402](https://github.com/LaWebcapsule/d9/discussions/402), [d9#435](https://github.com/LaWebcapsule/d9/pull/435)                                                                                                                                                            |
+| 💎  | [Open D branding](#branding)                                                      | 🏠 `not-planned`                           | `v12.0.18-od.1` | —                                                                                                                                                                                                                                                                                                                                    |
+| ✨  | [Animated login art](#branding)                                                   | ⏳ `pending`                               | `v12.0.18-od.1` | [d9#431](https://github.com/LaWebcapsule/d9/discussions/431), [d9#447](https://github.com/LaWebcapsule/d9/pull/447)                                                                                                                                                                                                                  |
+| ↔️  | [Resizable sidebar and roomier header](#sidebar-ux)                               | 🎯 `milestone` (part), ⏳ `pending` (rest) | `v12.0.20-od.2` | [ADR-4](_ai/decisions/ADR-4-sidebar-ux.md), [d9#431](https://github.com/LaWebcapsule/d9/discussions/431), [d9#433](https://github.com/LaWebcapsule/d9/pull/433), [d9#434](https://github.com/LaWebcapsule/d9/pull/434), [d9#445](https://github.com/LaWebcapsule/d9/pull/445), [d9#446](https://github.com/LaWebcapsule/d9/pull/446) |
 
 <a id="refresh-token"></a>
 
@@ -52,9 +51,8 @@ follow-up [slyk/d9#2](https://github.com/slyk/d9/pull/2), in `v12.0.19-od.1`.
 
 ### 🎨 Project colour as the admin primary colour
 
-The "Project Color" from Settings becomes the primary colour of the whole admin UI, not just the logo: buttons, links,
-toggles, focus rings and selections. It is used exactly as chosen, in the light and dark themes. Nothing needs to be
-configured.
+Merged into d9 ([d9#432](https://github.com/LaWebcapsule/d9/pull/432)), released in d9 `v12.0.21`; see
+[Merged into d9](#merged-into-d9). Open D has it since `v12.0.18-od.1`.
 
 <a id="indexed-checkbox"></a>
 
@@ -72,7 +70,8 @@ part of schema snapshot, diff and apply.
 - The Open D name and symbol replace the d9 ones in the module bar, favicon, PWA manifest and emails.
 - The login and other public pages get an animated "crystal parallax" background, tinted with the project colour. A
   custom public background set in Settings still replaces it. The animation is offered to d9 in
-  [d9#431](https://github.com/LaWebcapsule/d9/discussions/431); the Open D name and logo stay in Open D only.
+  [d9#447](https://github.com/LaWebcapsule/d9/pull/447) (from
+  [d9#431](https://github.com/LaWebcapsule/d9/discussions/431)); the Open D name and logo stay in Open D only.
 
 <a id="sidebar-ux"></a>
 
@@ -88,9 +87,10 @@ part of schema snapshot, diff and apply.
   on every window narrower than 960px.
 
 In d9: the first-section fix ([d9#433](https://github.com/LaWebcapsule/d9/pull/433)) and the grip on the navigation edge
-([d9#434](https://github.com/LaWebcapsule/d9/pull/434)) are pull requests. The rest (resizable right sidebar, 150px
-minimum, click to close, header actions) waits for the discussion
-([d9#431](https://github.com/LaWebcapsule/d9/discussions/431)).
+([d9#434](https://github.com/LaWebcapsule/d9/pull/434)) are merged into d9 `main` (after `v12.0.21`, not released yet).
+The rest is in review: the resizable right sidebar, the 150px minimum and click to close in
+[d9#445](https://github.com/LaWebcapsule/d9/pull/445), the header actions in
+[d9#446](https://github.com/LaWebcapsule/d9/pull/446).
 
 ## Coming in the next release
 
@@ -104,9 +104,9 @@ These are merged into Open D `main` or under review. They move to the table abov
 
 Features that started in Open D and are now part of d9. Open D no longer lists them as its own.
 
-| Feature      | Merged in d9 | Links |
-| ------------ | ------------ | ----- |
-| _(none yet)_ |              |       |
+| Feature                                                                      | Merged in d9 | Links                                                                                                                                                                         |
+| ---------------------------------------------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🎨 Project colour as the admin primary colour (Open D since `v12.0.18-od.1`) | `v12.0.21`   | [ADR-2](_ai/decisions/ADR-2-project-color-as-primary.md), [d9#431](https://github.com/LaWebcapsule/d9/discussions/431), [d9#432](https://github.com/LaWebcapsule/d9/pull/432) |
 
 ## Keeping this file current
 

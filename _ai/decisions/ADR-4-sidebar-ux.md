@@ -1,7 +1,7 @@
 # ADR-4: Sidebar and header ergonomics (resizable sidebar, grips, header actions)
 
 **Date:** 2026-10-15
-**Status:** Implemented, slyk/d9#4 (merged 2026-10-15), released in `v12.0.20-od.2` and deployed to tps-side and tps-supply. Upstream: discussion LaWebcapsule/d9#431 (2026-10-15); PRs LaWebcapsule/d9#433 (R4, first section, branch `upstream/sidebar-first-section`) and LaWebcapsule/d9#434 (R6 grip on the nav edge only, since d9 has no resizable sidebar yet, branch `upstream/resize-grip`). R1–R3, R5, R7 wait for the discussion.
+**Status:** Implemented, slyk/d9#4 (merged 2026-10-15), released in `v12.0.20-od.2` and deployed to tps-side and tps-supply. Upstream: discussion LaWebcapsule/d9#431 (2026-10-15); PRs LaWebcapsule/d9#433 (R4, first section, branch `upstream/sidebar-first-section`) and LaWebcapsule/d9#434 (R6 grip on the nav edge only, since d9 has no resizable sidebar yet, branch `upstream/resize-grip`). R1–R3, R5, R7 wait for the discussion. Update 2026-10-16: #433 and #434 merged into d9 `main` (not released yet); the rest sent as LaWebcapsule/d9#445 (R1–R3, R5, branch `upstream/sidebar-resize`) and LaWebcapsule/d9#446 (R7, branch `upstream/header-actions`).
 **Deciders:** Kyrylo Kuzmytskyi (requested 2026-10-15; approved the same day with these refinements: sidebar minimum 200px and
 collapse when dragged near the window edge, auto-collapse as a flag of the shared resize logic, no expand animation when a page
 opens with the sidebar already open, a thin separator above the clickable empty area)
