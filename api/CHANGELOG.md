@@ -1,5 +1,94 @@
 # @wbce-d9/api
 
+## 12.7.0
+
+### Minor Changes
+
+- [#430](https://github.com/LaWebcapsule/d9/pull/430)
+  [`eb7890d`](https://github.com/LaWebcapsule/d9/commit/eb7890d705ca0ecf3e92d928a39e90265596f5bc) - Added the
+  `AUTH_<PROVIDER>_REQUIRE_REFRESH_TOKEN` option for the OpenID and OAuth2 drivers (default `true`, which keeps the
+  current behavior). Setting it to `false` lets users log in and renew their session when the identity provider issued
+  no refresh token (for example Google when the account has already granted consent), instead of rejecting them with
+  `INVALID_CREDENTIALS` / "No [OpenID] Session found". A stored refresh token is still checked against the provider.
+
+  With the default, a login without a refresh token now redirects once to the provider with `prompt=consent` (as already
+  done for a revoked token) instead of failing right away, and a stored refresh token is no longer overwritten with
+  `null` when the provider does not issue a new one on login.
+
+### Patch Changes
+
+- [#441](https://github.com/LaWebcapsule/d9/pull/441)
+  [`4e86904`](https://github.com/LaWebcapsule/d9/commit/4e869043bb2c092d5aa0d6e893407f79fe5663d0) - security: when
+  `GRAPHQL_INTROSPECTION` is disabled, the GraphQL SDL is no longer served by `/server/specs/graphql` nor
+  (GHSA-wxwm-3fxv-mrvx, CVE-2026-35413) by the `server_specs_graphql` query, as it exposes the same schema information
+  as an introspection query (GHSA-wxwm-3fxv-mrvx / CVE-2026-35413)
+
+- [#437](https://github.com/LaWebcapsule/d9/pull/437)
+  [`a6ec87c`](https://github.com/LaWebcapsule/d9/commit/a6ec87c3b5057b5616a611169020f9ebdb1348d8) - security: password
+  reset requests now always take at least the same minimum time, whatever the outcome (invalid (GHSA-jr94-gj3h-c8rf,
+  CVE-2026-26185) `reset_url`, unknown or inactive user, mail error), so response timing no longer reveals whether an
+  account exists (GHSA-jr94-gj3h-c8rf).
+
+- [#451](https://github.com/LaWebcapsule/d9/pull/451)
+  [`7792afb`](https://github.com/LaWebcapsule/d9/commit/7792afba141f9bd9249b132b16a40eba2d00a7b1) - security: Validate
+  client-supplied values for `uuid` fields on create and store them lowercased (GHSA-9v9p-pxh4-qxj9)
+
+- [#438](https://github.com/LaWebcapsule/d9/pull/438)
+  [`16aa3cb`](https://github.com/LaWebcapsule/d9/commit/16aa3cb19341edf981582527a2ea13d3ed54b76c) - security: concealed
+  fields (such as user passwords and tokens) of the payload received by an event-triggered flow are
+  (GHSA-x3vm-88hf-gpxp, CVE-2025-53885) now masked in the "Log to Console" operation output and in the flow run
+  revisions (GHSA-x3vm-88hf-gpxp)
+
+- [#444](https://github.com/LaWebcapsule/d9/pull/444)
+  [`d492d37`](https://github.com/LaWebcapsule/d9/commit/d492d37fa9d0ba2c5dcda9b8d4c42a3a82b13d78) - security: an access
+  token passed in the query string is no longer written to the logs (GHSA-vw58-ph65-6rxp / (CVE-2024-47822)
+  CVE-2024-47822)
+- Updated dependencies [[`490e25e`](https://github.com/LaWebcapsule/d9/commit/490e25e6a1577514c097da123e74ab2f55a8968c),
+  [`2db4d1d`](https://github.com/LaWebcapsule/d9/commit/2db4d1d6c4fa8339c590340bfe14f7595148b3b5),
+  [`aba4181`](https://github.com/LaWebcapsule/d9/commit/aba4181682b087ffc0909cc355e4676572d8fa6c),
+  [`0a82510`](https://github.com/LaWebcapsule/d9/commit/0a825102ce18631669bbcd1d21636398f38896d6),
+  [`f95759f`](https://github.com/LaWebcapsule/d9/commit/f95759fb4af879ffb432474b626f549e2c342820),
+  [`20fc79d`](https://github.com/LaWebcapsule/d9/commit/20fc79d568e80de4177bfaccffbbe23f2790914e),
+  [`2db4d1d`](https://github.com/LaWebcapsule/d9/commit/2db4d1d6c4fa8339c590340bfe14f7595148b3b5)]:
+  - @wbce-d9/app@11.2.0
+
+## 12.6.1
+
+### Patch Changes
+
+- [#427](https://github.com/LaWebcapsule/d9/pull/427)
+  [`7956e59`](https://github.com/LaWebcapsule/d9/commit/7956e594eedf194da2565f13971a5c136579ad3c) - security: `hash`
+  fields are now concealed on read, like `conceal` fields, so their value is no longer stored in clear text
+  (GHSA-mvv8-v4jj-g47j, CVE-2026-39943) in revisions when an item is created, and their hash is no longer returned by
+  the API (GHSA-mvv8-v4jj-g47j).
+
+- [#425](https://github.com/LaWebcapsule/d9/pull/425)
+  [`7e04036`](https://github.com/LaWebcapsule/d9/commit/7e0403632d8c11d2d2bcba1b43aec432a6ed185d) - security: fields
+  with the `conceal` special can no longer be used with value-returning aggregate functions (`min`,
+  (GHSA-38hg-ww64-rrwc, CVE-2026-35442, GHSA-8jpw-gpr4-8cmh, CVE-2025-64748) `max`, `sum`, `avg`, …)
+  (GHSA-38hg-ww64-rrwc / CVE-2026-35442) and are excluded from search (GHSA-8jpw-gpr4-8cmh / CVE-2025-64748), to prevent
+  extracting their values
+
+- [#429](https://github.com/LaWebcapsule/d9/pull/429)
+  [`90fb2e7`](https://github.com/LaWebcapsule/d9/commit/90fb2e7bf0bfcc3a51071ca111c1d998cc1b7e65) - security: deleting a
+  field now removes it from the permissions of its collection, so a field later created with the same
+  (GHSA-9x5g-62gj-wqf2, CVE-2025-64746) name no longer inherits the deleted field's access (GHSA-9x5g-62gj-wqf2 /
+  CVE-2025-64746)
+
+- [#426](https://github.com/LaWebcapsule/d9/pull/426)
+  [`3a76a3a`](https://github.com/LaWebcapsule/d9/commit/3a76a3a80f3c4d384d7a99277dca8c2a651e6209) - security: the
+  OpenAPI specification served by `/server/specs/oas` now only exposes the exact running version in
+  (GHSA-rmjh-cf9q-pv7q) `info.version` to admins, like `/server/info`; other users get `0.0.0-hidden`
+  (GHSA-rmjh-cf9q-pv7q)
+
+- [#424](https://github.com/LaWebcapsule/d9/pull/424)
+  [`2c9fefc`](https://github.com/LaWebcapsule/d9/commit/2c9fefcb0e76d8d513cc4a33ec559cb93b9ca59d) - security: manual
+  Flow triggers now require read access to the Flow and to the target collection / items (GHSA-7cvf-pxgp-42fc,
+  CVE-2025-53889) (GHSA-7cvf-pxgp-42fc / CVE-2025-53889)
+- Updated dependencies
+  [[`d4d8aa9`](https://github.com/LaWebcapsule/d9/commit/d4d8aa999c5515b618555b25e6df914a3d2ad703)]:
+  - @wbce-d9/app@11.1.0
+
 ## 12.6.0
 
 ### Minor Changes
