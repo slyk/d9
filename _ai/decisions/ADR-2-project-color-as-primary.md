@@ -1,7 +1,7 @@
 # ADR-2: Use the project color as the admin UI primary color
 
 **Date:** 2026-10-13
-**Status:** Implemented (slyk/d9 `main` f72d80075, deployed to tps-side 2026-10-13) Upstream: discussion LaWebcapsule/d9#431, PR LaWebcapsule/d9#432 (branch `upstream/project-color`, 2026-10-15). Merged into d9 on 2026-10-16 and released in d9 `v12.0.21`.
+**Status:** Implemented (slyk/d9 `main` f72d80075, deployed to tps-side 2026-10-13) Upstream: discussion LaWebcapsule/d9#431, PR LaWebcapsule/d9#432 (branch `upstream/project-color`, 2026-10-15). Merged into d9 on 2026-10-16 and released in d9 `v12.0.21`. **In d9 `v12.0.21`** (LaWebcapsule/d9#432); Open D now uses the d9 code.
 **Deciders:** Kyrylo Kuzmytskyi (approved 2026-10-13: Option A, no contrast guard; built directly on tps-side because the instance was still empty. Revised 2026-10-13 after testing: the proposed 20% dark mode lift was dropped, it desaturated the color; the project color is used as is in every theme)
 
 ## Context

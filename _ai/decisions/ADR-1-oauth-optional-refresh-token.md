@@ -1,7 +1,7 @@
 # ADR-1: Optional IdP refresh token for OAuth2/OpenID logins
 
 **Date:** 2026-10-12
-**Status:** Implemented (slyk/d9 PR #1, merged 2026-10-13; deployed to tps-side)
+**Status:** Implemented (slyk/d9 PR #1, merged 2026-10-13; deployed to tps-side) **In d9 `v12.0.22`** (LaWebcapsule/d9#430); Open D now uses the d9 code.
 **Deciders:** Kyrylo Kuzmytskyi (approved 2026-10-12: Option B, flag name `REQUIRE_REFRESH_TOKEN`)
 
 ## Context

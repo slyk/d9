@@ -6,9 +6,16 @@ only to Open D.
 
 When d9 ships one of these features, it leaves this list and moves to the [history](#merged-into-d9) at the end.
 
-Open D releases are tagged `v<d9 version>-od.<N>`. `N` is the version of the Open D features themselves and counts
-across all d9 versions. The same `od.N` on two d9 versions means the same Open D features; a higher `N` means they
-changed, so read that release's notes.
+## Version numbers
+
+Open D releases are tagged `v<d9 version>-od<N>.<M>`, for example `v12.0.22-od2.1`:
+
+- `N` is the Open D feature set. It goes up when Open D adds or changes a feature. It counts across all d9 versions: the
+  same `odN` on two d9 versions means the same Open D features.
+- `M` counts the fixes to that feature set: `od2.1`, `od2.2`, … A new feature set starts again without a fix number
+  (`od3`).
+
+Older releases used `-od.<N>` (`v12.0.18-od.1`, `v12.0.19-od.1`, `v12.0.20-od.2`).
 
 ## Status in d9
 
@@ -23,36 +30,10 @@ changed, so read that release's notes.
 
 ## Features
 
-|     | Feature                                                                           | d9 status                                  | In Open D since | Links                                                                                                                                                                                                                                                                                                                                |
-| --- | --------------------------------------------------------------------------------- | ------------------------------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 🔑  | [Login with OpenID/OAuth2 providers that return no refresh token](#refresh-token) | ⏳ `pending` (approved)                    | `v12.0.18-od.1` | [ADR-1](_ai/decisions/ADR-1-oauth-optional-refresh-token.md), [d9#401](https://github.com/LaWebcapsule/d9/issues/401), [d9#430](https://github.com/LaWebcapsule/d9/pull/430)                                                                                                                                                         |
-| 🗂️  | ["Indexed" checkbox for fields](#indexed-checkbox)                                | ⏳ `pending`                               | `v12.0.18-od.1` | [ADR-3](_ai/decisions/ADR-3-field-index-checkbox.md), [d9#402](https://github.com/LaWebcapsule/d9/discussions/402), [d9#435](https://github.com/LaWebcapsule/d9/pull/435)                                                                                                                                                            |
-| 💎  | [Open D branding](#branding)                                                      | 🏠 `not-planned`                           | `v12.0.18-od.1` | —                                                                                                                                                                                                                                                                                                                                    |
-| ✨  | [Animated login art](#branding)                                                   | ⏳ `pending`                               | `v12.0.18-od.1` | [d9#431](https://github.com/LaWebcapsule/d9/discussions/431), [d9#447](https://github.com/LaWebcapsule/d9/pull/447)                                                                                                                                                                                                                  |
-| ↔️  | [Resizable sidebar and roomier header](#sidebar-ux)                               | 🎯 `milestone` (part), ⏳ `pending` (rest) | `v12.0.20-od.2` | [ADR-4](_ai/decisions/ADR-4-sidebar-ux.md), [d9#431](https://github.com/LaWebcapsule/d9/discussions/431), [d9#433](https://github.com/LaWebcapsule/d9/pull/433), [d9#434](https://github.com/LaWebcapsule/d9/pull/434), [d9#445](https://github.com/LaWebcapsule/d9/pull/445), [d9#446](https://github.com/LaWebcapsule/d9/pull/446) |
-
-<a id="refresh-token"></a>
-
-### 🔑 Optional refresh token for OpenID and OAuth2 logins
-
-Google and some other identity providers send a refresh token only when the user sees the consent screen. In d9, the
-next login of an account that already consented fails with "No [OpenID] Session found".
-
-Open D handles this in two ways:
-
-- **Default:** when no refresh token is stored, the login retries once with `prompt=consent`, which gets a new token.
-- **Optional:** `AUTH_<PROVIDER>_REQUIRE_REFRESH_TOKEN=false` lets users in without a refresh token. Their Directus
-  session alone then keeps them logged in.
-
-In both cases a token received earlier is kept on re-login, not erased. Changes since the first version: review
-follow-up [slyk/d9#2](https://github.com/slyk/d9/pull/2), in `v12.0.19-od.1`.
-
-<a id="project-colour"></a>
-
-### 🎨 Project colour as the admin primary colour
-
-Merged into d9 ([d9#432](https://github.com/LaWebcapsule/d9/pull/432)), released in d9 `v12.0.21`; see
-[Merged into d9](#merged-into-d9). Open D has it since `v12.0.18-od.1`.
+|     | Feature                                            | d9 status        | In Open D since | Links                                                                                                                                                                     |
+| --- | -------------------------------------------------- | ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🗂️  | ["Indexed" checkbox for fields](#indexed-checkbox) | ⏳ `pending`     | `v12.0.18-od.1` | [ADR-3](_ai/decisions/ADR-3-field-index-checkbox.md), [d9#402](https://github.com/LaWebcapsule/d9/discussions/402), [d9#435](https://github.com/LaWebcapsule/d9/pull/435) |
+| 💎  | [Open D branding](#branding)                       | 🏠 `not-planned` | `v12.0.18-od.1` | —                                                                                                                                                                         |
 
 <a id="indexed-checkbox"></a>
 
@@ -65,36 +46,14 @@ part of schema snapshot, diff and apply.
 
 <a id="branding"></a>
 
-### 💎 Open D branding and ✨ animated login art
+### 💎 Open D branding
 
-- The Open D name and symbol replace the d9 ones in the module bar, favicon, PWA manifest and emails.
-- The login and other public pages get an animated "crystal parallax" background, tinted with the project colour. A
-  custom public background set in Settings still replaces it. The animation is offered to d9 in
-  [d9#447](https://github.com/LaWebcapsule/d9/pull/447) (from
-  [d9#431](https://github.com/LaWebcapsule/d9/discussions/431)); the Open D name and logo stay in Open D only.
-
-<a id="sidebar-ux"></a>
-
-### ↔️ Resizable sidebar and roomier header
-
-- The sidebar on the right can be resized from its left edge, from 150px up to the room left for the page. Double-click
-  the edge to reset it to 280px. Dragging it close to the window edge closes it. The navigation on the left can now also
-  be made narrower, down to 150px.
-- Both resizable edges show a small grip, so they can be found without hovering. It lights up in the primary colour.
-- When the sidebar is open, a new page shows its first section (usually "Information") open, instead of all collapsed.
-- A click on the empty area below the sidebar sections closes the sidebar. A thin line marks where that area starts.
-- The header action buttons collapse behind an expand button only when they would take more than half of the header, not
-  on every window narrower than 960px.
-
-In d9: the first-section fix ([d9#433](https://github.com/LaWebcapsule/d9/pull/433)) and the grip on the navigation edge
-([d9#434](https://github.com/LaWebcapsule/d9/pull/434)) are merged into d9 `main` (after `v12.0.21`, not released yet).
-The rest is in review: the resizable right sidebar, the 150px minimum and click to close in
-[d9#445](https://github.com/LaWebcapsule/d9/pull/445), the header actions in
-[d9#446](https://github.com/LaWebcapsule/d9/pull/446).
+The Open D name and symbol replace the d9 ones in the module bar, the logo on the login and shared pages, the favicon,
+the PWA manifest, the page title and emails. They stay in Open D only.
 
 ## Coming in the next release
 
-These are merged into Open D `main` or under review. They move to the table above once released.
+These are merged into Open D `main`. They move to the table above once released.
 
 |              | Feature | d9 status | Links |
 | ------------ | ------- | --------- | ----- |
@@ -102,11 +61,14 @@ These are merged into Open D `main` or under review. They move to the table abov
 
 ## Merged into d9
 
-Features that started in Open D and are now part of d9. Open D no longer lists them as its own.
+Features that started in Open D and are now part of d9. Open D no longer lists them as its own: they come with d9.
 
-| Feature                                                                      | Merged in d9 | Links                                                                                                                                                                         |
-| ---------------------------------------------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 🎨 Project colour as the admin primary colour (Open D since `v12.0.18-od.1`) | `v12.0.21`   | [ADR-2](_ai/decisions/ADR-2-project-color-as-primary.md), [d9#431](https://github.com/LaWebcapsule/d9/discussions/431), [d9#432](https://github.com/LaWebcapsule/d9/pull/432) |
+| Feature                                                                                                                                | In Open D since | Released in d9 | Links                                                                                                                                                                                                                                                                                                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------------------------------- | --------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🎨 Project colour as the admin primary colour                                                                                          | `v12.0.18-od.1` | `v12.0.21`     | [ADR-2](_ai/decisions/ADR-2-project-color-as-primary.md), [d9#431](https://github.com/LaWebcapsule/d9/discussions/431), [d9#432](https://github.com/LaWebcapsule/d9/pull/432)                                                                                                                                                                                                               |
+| 🔑 Login with OpenID/OAuth2 providers that return no refresh token (`AUTH_<PROVIDER>_REQUIRE_REFRESH_TOKEN`, consent retry)            | `v12.0.18-od.1` | `v12.0.22`     | [ADR-1](_ai/decisions/ADR-1-oauth-optional-refresh-token.md), [d9#401](https://github.com/LaWebcapsule/d9/issues/401), [d9#430](https://github.com/LaWebcapsule/d9/pull/430)                                                                                                                                                                                                                |
+| ✨ Animated login art (crystal background tinted with the project colour)                                                              | `v12.0.18-od.1` | `v12.0.22`     | [d9#431](https://github.com/LaWebcapsule/d9/discussions/431), [d9#447](https://github.com/LaWebcapsule/d9/pull/447)                                                                                                                                                                                                                                                                         |
+| ↔️ Resizable sidebar with grips, first section kept open, click empty area to close, header actions collapse only when they do not fit | `v12.0.20-od.2` | `v12.0.22`     | [ADR-4](_ai/decisions/ADR-4-sidebar-ux.md), [d9#431](https://github.com/LaWebcapsule/d9/discussions/431), [d9#433](https://github.com/LaWebcapsule/d9/pull/433), [d9#434](https://github.com/LaWebcapsule/d9/pull/434), [d9#445](https://github.com/LaWebcapsule/d9/pull/445), [d9#446](https://github.com/LaWebcapsule/d9/pull/446), [d9#449](https://github.com/LaWebcapsule/d9/pull/449) |
 
 ## Keeping this file current
 
@@ -114,4 +76,4 @@ Features that started in Open D and are now part of d9. Open D no longer lists t
   it to the Features table with its `In Open D since` tag.
 - When the d9 status changes, update the status and the links (issue, discussion, pull request).
 - When a d9 release contains the feature, move it to "Merged into d9", with the d9 version.
-- Every Open D release note starts with the short feature list (emoji, name, status) and links to this file.
+- Every Open D release note ends with the short feature list (emoji, name, status) and links to this file.
