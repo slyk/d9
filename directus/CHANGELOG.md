@@ -1,5 +1,41 @@
 # directus9
 
+## 12.0.26
+
+### Patch Changes
+
+- Updated dependencies
+  [[`6c59127`](https://github.com/LaWebcapsule/d9/commit/6c59127a964524cddf757f7bafd2f21861a76f39)]:
+  - @wbce-d9/api@12.7.4
+
+## 12.0.25
+
+### Patch Changes
+
+- Updated dependencies [[`aacdd03`](https://github.com/LaWebcapsule/d9/commit/aacdd039937e19e2cbcecc6924a965616f884736),
+  [`41ead8b`](https://github.com/LaWebcapsule/d9/commit/41ead8bd2633f9413c73935c3fba029845e0eb80),
+  [`ff27c30`](https://github.com/LaWebcapsule/d9/commit/ff27c30fa40a919dfe24a9968bd06eeb9b68a965),
+  [`86ade75`](https://github.com/LaWebcapsule/d9/commit/86ade753e889713fd59b543b482150a655a64cf2),
+  [`cfb05b8`](https://github.com/LaWebcapsule/d9/commit/cfb05b8fc5bb00d15b00ed385caa848f694b2ccf),
+  [`7914db7`](https://github.com/LaWebcapsule/d9/commit/7914db700b5134d019074a18b958480d5819e0fd)]:
+  - @wbce-d9/api@12.7.3
+
+## 12.0.24
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e1fe7c5`](https://github.com/LaWebcapsule/d9/commit/e1fe7c589d915c88db1599f76d4e2bc9015ee494)]:
+  - @wbce-d9/api@12.7.2
+
+## 12.0.23
+
+### Patch Changes
+
+- Updated dependencies [[`36afd9d`](https://github.com/LaWebcapsule/d9/commit/36afd9dba10a3ccc895d49829191d8bbce710eca),
+  [`5f66176`](https://github.com/LaWebcapsule/d9/commit/5f66176697589d5363a6f6302e4fb90ad11d3359)]:
+  - @wbce-d9/api@12.7.1
+
 ## 12.0.22
 
 ### Patch Changes
